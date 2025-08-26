@@ -608,12 +608,10 @@ We are now the #1 block explorer in terms of EVM reach, and are shifting focus t
             }
         });
 
-        // Revenue Performance Chart
+          // Revenue Performance Chart
         const revenueCtx = document.getElementById('revenueChart').getContext('2d');
         // Calculate percentages from actual revenue data
-        const revenueData = [157903, 106831, 110783, 294540, 129891, 160707, 141749, 180000];
-        const totalRevenue = revenueData.reduce((sum, val) => sum + val, 0);
-        const revenuePercentages = revenueData.map(val => ((val / totalRevenue) * 100));
+        const revenuePercentages = [12.3, 8.3, 8.6, 23.0, 10.1, 12.5, 11.1, 14.0];
         
         new Chart(revenueCtx, {
             type: 'bar',
