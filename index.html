@@ -1,96 +1,669 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
-  <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockscout Investor Update - August 2025</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .company-logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+        
+        .report-title {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        
+        .report-date {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .highlights {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            border-left-color: #28a745;
+        }
+        
+        .highlight-item {
+            background: white;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .highlight-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .kpi-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #3498db;
+        }
+        
+        .kpi-title {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 250px;
+            margin: 20px 0;
+        }
+        
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .metric-value {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .growth-indicator {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .financial-notes {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left-color: #ffc107;
+        }
+        
+        .focus-areas {
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            border-left-color: #17a2b8;
+        }
+        
+        .focus-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #17a2b8;
+        }
+        
+        .focus-item h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .focus-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .focus-item li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .focus-item li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #17a2b8;
+            font-weight: bold;
+        }
+        
+        .partners, .product, .team, .competitive {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left-color: #6c757d;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+            }
+            
+            .header, .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="company-logo">
+                    <img src="data:image/png;base64,YOUR_LOGO_BASE64_HERE" alt="Blockscout Logo" class="logo-image" style="display: none;" />
+                    ⛓️ BLOCKSCOUT
+                </div>
+                <div class="report-title">Monthly Investor Update</div>
+                <div class="report-date">August 2025</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section highlights">
+                <h2 class="section-title">
+                    <div class="section-icon">★</div>
+                    Executive Highlights
+                </h2>
+                <div class="highlight-item">
+                    <strong>New CEO Leadership:</strong> Eva Zhang started as CEO on August 1st and will be publicly announced in September. She brings extensive financial industry experience as the former CEO of Alipay UK.
+                </div>
+                <div class="highlight-item">
+                    <strong>Fundraising Progress:</strong> Eva's appointment coincides with our next fundraising round. We are raising $5M on an $80M valuation.
+                </div>
+                <div class="highlight-item">
+                    <strong>Revenue Growth:</strong> Autoscout anticipated Q3 revenue is up <span class="growth-indicator">75% from Q1</span>. Blockscout now services deployments for 2 major RaaS providers (Gelato and Alchemy) with Autoscout.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">📊</div>
+                    Key Performance Indicators
+                </h2>
+                
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <h3 class="kpi-title">Total Autoscout Deployments</h3>
+                        <div class="chart-container">
+                            <canvas id="deploymentsChart"></canvas>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">August Total</span>
+                            <span class="metric-value">949</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Monthly Growth</span>
+                            <span class="metric-value growth-indicator">+8.7%</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <h3 class="kpi-title">Active Autoscout Deployments</h3>
+                        <div class="chart-container">
+                            <canvas id="activeChart"></canvas>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">August Active</span>
+                            <span class="metric-value">140</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Monthly Growth</span>
+                            <span class="metric-value growth-indicator">+12.9%</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <h3 class="kpi-title">Community Growth</h3>
+                        <div class="chart-container">
+                            <canvas id="communityChart"></canvas>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Discord</span>
+                            <span class="metric-value">18.3K (+785)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Twitter</span>
+                            <span class="metric-value">59.8K (+4,133)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Newsletter</span>
+                            <span class="metric-value">277K (+12,513)</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <h3 class="kpi-title">Monthly Revenue Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">August Share</span>
+                            <span class="metric-value">14.0% of YTD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section financial-notes">
+                <h2 class="section-title">
+                    <div class="section-icon">💰</div>
+                    Financial Notes
+                </h2>
+                <p style="margin-bottom: 15px;"><em>Notes on receivables or transactions that differ from standard monthly EaaS payments, Autoscout payments, and explorer ad revenue.</em></p>
+                <div class="highlight-item">
+                    <strong>Grant Funding:</strong> $39K received from the Ethereum Foundation and Octant funding round
+                </div>
+                <div class="highlight-item">
+                    <strong>Zilliqa Project:</strong> Customizations completed with multi-month hosting charge collected
+                </div>
+                <div class="highlight-item">
+                    <strong>Soneium Integration:</strong> Payment processing enabled for Sony with substantial back payments collected
+                </div>
+                <div class="highlight-item">
+                    <strong>Crypto Payments:</strong> Daimo pay initiated for Autoscout, enabling direct crypto payments from users
+                </div>
+            </div>
+
+            <div class="section focus-areas">
+                <h2 class="section-title">
+                    <div class="section-icon">🎯</div>
+                    Strategic Focus Areas
+                </h2>
+                
+                <div class="focus-item">
+                    <h4>Reduce Infrastructure Costs</h4>
+                    <ul>
+                        <li>Cloud infrastructure optimization across multiple providers</li>
+                        <li>Data center location exploration to reduce bare metal costs</li>
+                        <li>Optimizing cloud/bare-metal balance for cost efficiency</li>
+                        <li>Database optimizations targeting 30% reduction in storage needs</li>
+                    </ul>
+                </div>
+
+                <div class="focus-item">
+                    <h4>Increase Revenue Generation</h4>
+                    <ul>
+                        <li>Premium API launch estimated at <span class="growth-indicator">$100K/month revenue potential</span></li>
+                        <li>Full-featured wallet integration development</li>
+                        <li>Advanced data analytics services for supported chains</li>
+                        <li>Institutional data packages focusing on compliance & stablecoin analytics</li>
+                    </ul>
+                </div>
+
+                <div class="focus-item">
+                    <h4>Maintain and Expand Pipeline</h4>
+                    <ul>
+                        <li>Our client base continues to grow with very little attrition</li>
+                        <li>We have signed agreements with several large new clients and will begin dev shortly (not announced yet or NDA)</li>
+                        <li>We are in discussions with additional RaaS providers and ecosystems to bring on more L2s and L3s</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section partners">
+                <h2 class="section-title">
+                    <div class="section-icon">🤝</div>
+                    Partnerships & Product
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div>
+                        <h4>New Partnerships</h4>
+                        <p>We launched new deployments for TAC and Zilliqa and finished up the XRPL explorer campaign launch. Over 950 participants successfully completed the campaign.</p>
+                        <p style="margin-top: 15px;">We also have several exciting partnerships we will announce soon, currently under NDA.</p>
+                    </div>
+                    <div>
+                        <h4>Product Updates</h4>
+                        <p>Our new widgets integration delivers valuable third-party insights about addresses and contracts directly within the explorer. Widget partners provide enhanced functionality to chain users while creating valuable backlinks to Blockscout, driving both user engagement and referral traffic.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section team">
+                <h2 class="section-title">
+                    <div class="section-icon">👥</div>
+                    Team & Operations
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div>
+                        <h4>Team Growth</h4>
+                        <p>Added 1 new Rust developer for explorer customizations and microservice development. Current team: <strong>37 employees and contractors</strong>.</p>
+                    </div>
+                    <div>
+                        <h4>Global Expansion</h4>
+                        <p>Eva (London-based) will travel to Asia for VC meetings and speaking engagements, including Hangzhou tech conference (September) and Token2049 (October).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section competitive">
+                <h2 class="section-title">
+                    <div class="section-icon">🏆</div>
+                    Competitive Intelligence
+                </h2>
+                <div class="highlight-item">
+                    <strong>Market Validation:</strong> Etherscan released a points program with features modeled after Blockscout's program (active since November 2024).
+                </div>
+                <div class="highlight-item">
+                    <strong>Market Opportunity:</strong> OKX is sunsetting their explorer, creating new adoption opportunities for Blockscout.
+                </div>
+                <div class="highlight-item">
+                    <strong>Market Leadership:</strong> <a href="https://routescan.io/research/reports/report_q2.pdf" target="_blank" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;">Routescan industry report</a> shows continued Blockscout dominance, especially with L2s and L3s.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <p><strong>Please feel free to contact us on Telegram with any questions or additional information requests.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Chart.js configuration
+        Chart.defaults.font.family = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+        Chart.defaults.color = '#333';
+
+        // Deployments Chart
+        const deploymentsCtx = document.getElementById('deploymentsChart').getContext('2d');
+        new Chart(deploymentsCtx, {
+            type: 'line',
+            data: {
+                labels: ['July', 'August'],
+                datasets: [{
+                    label: 'Total Deployments',
+                    data: [873, 949],
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#3498db',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 800,
+                        grid: {
+                            color: 'rgba(0,0,0,0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Active Deployments Chart
+        const activeCtx = document.getElementById('activeChart').getContext('2d');
+        new Chart(activeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['July', 'August'],
+                datasets: [{
+                    label: 'Active Deployments',
+                    data: [124, 140],
+                    backgroundColor: ['#28a745', '#28a745'],
+                    borderColor: '#1e7e34',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 100,
+                        grid: {
+                            color: 'rgba(0,0,0,0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Community Growth Chart
+        const communityCtx = document.getElementById('communityChart').getContext('2d');
+        new Chart(communityCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Discord', 'Twitter', 'Newsletter'],
+                datasets: [{
+                    data: [18300, 59800, 277000],
+                    backgroundColor: ['#7289da', '#1da1f2', '#ffc107'],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    }
+                }
+            }
+        });
+
+        // Revenue Performance Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        // Calculate percentages from actual revenue data
+        const revenueData = [157903, 106831, 110783, 294540, 129891, 160707, 141749, 180000];
+        const totalRevenue = revenueData.reduce((sum, val) => sum + val, 0);
+        const revenuePercentages = revenueData.map(val => ((val / totalRevenue) * 100));
+        
+        new Chart(revenueCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                datasets: [{
+                    label: 'Revenue %',
+                    data: revenuePercentages,
+                    backgroundColor: [
+                        '#3498db', '#3498db', '#3498db', '#3498db', '#3498db', '#3498db', '#3498db', '#28a745'
+                    ],
+                    borderColor: '#2c3e50',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.parsed.y.toFixed(1) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 25,
+                        grid: {
+                            color: 'rgba(0,0,0,0.1)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
 </html>
