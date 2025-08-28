@@ -280,7 +280,7 @@
         <div class="header">
             <div class="header-content">
                 <div class="company-logo">
-                    <img src="https://blockscout-icons.s3.us-east-1.amazonaws.com/blockscout_logo.png" alt="Blockscout Logo" class="logo-image" />
+                    <img src="blockscout_logo.png" alt="Blockscout Logo" class="logo-image" />
                     BLOCKSCOUT
                 </div>
                 <div class="report-title">Monthly Investor Update</div>
@@ -318,7 +318,7 @@
                             <canvas id="deploymentsChart"></canvas>
                         </div>
                         <div class="metric-row">
-                            <span class="metric-label">Cumulative Total</span>
+                            <span class="metric-label">August Total</span>
                             <span class="metric-value">949</span>
                         </div>
                         <div class="metric-row">
@@ -339,6 +339,45 @@
                         <div class="metric-row">
                             <span class="metric-label">Monthly Growth</span>
                             <span class="metric-value growth-indicator">+12.9%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">📈</div>
+                    EaaS Updates
+                </h2>
+                <p style="margin-bottom: 15px;"><em>Explorer-as-a-Service deployments and top performing chains.</em></p>
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <h3 class="kpi-title">Top 10 Instances in August<br><span style="font-size: 0.8em; font-weight: normal; color: #666;">(by % of unique page views)</span></h3>
+                        <div class="chart-container">
+                            <canvas id="instancesChart"></canvas>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Top Instance</span>
+                            <span class="metric-value">Zora (37.9%)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Ethereum Share</span>
+                            <span class="metric-value">18.7%</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <h3 class="kpi-title">Active EaaS Deployments</h3>
+                        <div class="chart-container">
+                            <canvas id="eaasChart"></canvas>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">August Total</span>
+                            <span class="metric-value">96 (50M + 46T)</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Monthly Growth</span>
+                            <span class="metric-value growth-indicator">+2.1%</span>
                         </div>
                     </div>
                 </div>
@@ -400,8 +439,8 @@
                             <canvas id="revenueChart"></canvas>
                         </div>
                         <div class="metric-row">
-                            <span class="metric-label">August Revenue %</span>
-                            <span class="metric-value">14.0% of Total Revenue YTD</span>
+                            <span class="metric-label">August Share</span>
+                            <span class="metric-value">14.0% of YTD</span>
                         </div>
                     </div>
 
@@ -412,7 +451,7 @@
                         </div>
                         <div class="metric-row">
                             <span class="metric-label">August Burn</span>
-                            <span class="metric-value">11.2% of Total Burn YTD</span>
+                            <span class="metric-value">11.2% of YTD</span>
                         </div>
                         <div class="metric-row">
                             <span class="metric-label">Lowest Month</span>
@@ -632,6 +671,124 @@ We are now the #1 block explorer in terms of EVM reach, and are shifting focus t
             }
         });
 
+        // Active EaaS Deployments Chart
+        const eaasCtx = document.getElementById('eaasChart').getContext('2d');
+        new Chart(eaasCtx, {
+            type: 'bar',
+            data: {
+                labels: ['April', 'May', 'June', 'July', 'August'],
+                datasets: [{
+                    label: 'Mainnets',
+                    data: [43, 47, 48, 48, 50],
+                    backgroundColor: '#28a745',
+                    borderColor: '#1e7e34',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }, {
+                    label: 'Testnets',
+                    data: [38, 42, 43, 44, 46],
+                    backgroundColor: '#17a2b8',
+                    borderColor: '#0e5d6b',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 60,
+                        grid: {
+                            color: 'rgba(0,0,0,0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Top 10 Instances Chart
+        const instancesCtx = document.getElementById('instancesChart').getContext('2d');
+        new Chart(instancesCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Zora Mainnet',
+                    'Ethereum Mainnet', 
+                    'Celo Mainnet',
+                    'Gnosis Chain',
+                    'Ink Mainnet',
+                    'Nexus Testnet',
+                    'Alchemy World Chain',
+                    'Base Mainnet',
+                    'Immutable Mainnet',
+                    'Soneium Mainnet'
+                ],
+                datasets: [{
+                    label: 'Page Views %',
+                    data: [37.93, 18.70, 8.58, 3.35, 2.45, 2.29, 1.82, 1.71, 1.49, 1.29],
+                    backgroundColor: [
+                        '#e74c3c', '#3498db', '#f39c12', '#9b59b6', '#1abc9c',
+                        '#34495e', '#e67e22', '#2ecc71', '#95a5a6', '#f1c40f'
+                    ],
+                    borderColor: '#2c3e50',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.parsed.x.toFixed(1) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 40,
+                        grid: {
+                            color: 'rgba(0,0,0,0.1)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
         // Page Views Chart
         const pageViewsCtx = document.getElementById('pageViewsChart').getContext('2d');
         const pageViewsData = [5.84, 7.44, 8.87, 10.29, 12.71, 14.46, 16.28, 17.23];
@@ -775,6 +932,7 @@ We are now the #1 block explorer in terms of EVM reach, and are shifting focus t
                 }
             }
         });
+
         // Burn Rate Chart
         const burnCtx = document.getElementById('burnChart').getContext('2d');
         const burnPercentages = [17.5, 11.6, 14.2, 10.3, 6.2, 10.8, 18.2, 11.2];
